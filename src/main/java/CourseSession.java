@@ -1,17 +1,14 @@
+import studentinfo.Student;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CourseSession {
     private String department;
     private String sessionNumber;
-    private int numberOfStudents = 0;
     private List<Student> enrolledStudents = new ArrayList<>();
 
-    public CourseSession(String department, String sessionNumber, int numberOfStudents) {
-        this.department = department;
-        this.sessionNumber = sessionNumber;
-        this.numberOfStudents = numberOfStudents;
-    }
+
 
     public CourseSession(String department, String sessionNumber){
         this.department = department;
@@ -27,16 +24,15 @@ public class CourseSession {
     }
 
     public int getNumberOfStudents() {
-        return numberOfStudents;
+        return enrolledStudents.size();
     }
 
     public void enroll(Student student) {
         enrolledStudents.add(student);
-        numberOfStudents = enrolledStudents.size();
+
     }
 
-    public List<Student> getAllStudents() {
-        return enrolledStudents;
-
+    public Student getStudentOfIndex(int index){
+        return enrolledStudents.get(index);
     }
 }
