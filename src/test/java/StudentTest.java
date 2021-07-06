@@ -5,11 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class StudentTest {
     @Test
     void studentObjectShouldReturnAName(){
-        String name = "Jannet Doe";
+        final String name = "Janet Doe";
         Student student = new Student(name);
-        assertEquals( student.getName(),
-                name);
-
+        assertEquals(name, student.getName());
 
     }
 
