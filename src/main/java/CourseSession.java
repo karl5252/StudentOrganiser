@@ -31,8 +31,8 @@ public class CourseSession {
     }
 
     public void enroll(Student student) {
-        numberOfStudents = numberOfStudents + 1;
-        this.enrolledStudents.add(student);
+        enrolledStudents.add(student);
+        numberOfStudents = enrolledStudents.size();
     }
 
     public List<Student> getAllStudents() {
