@@ -42,7 +42,13 @@ public class CourseSession {
         return enrolledStudents.get(index);
     }
     public Date createStartingDate(int year, int month, int dayDate){
-        return new Date(year - 1900, month - 1, dayDate);
+        //return new Date(year - 1900, month - 1, dayDate);
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.clear();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month-1);
+        calendar.set(Calendar.DAY_OF_MONTH , dayDate);
+        return calendar.getTime();
     }
 
     public Date getEndDate() {
