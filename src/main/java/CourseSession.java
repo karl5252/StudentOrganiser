@@ -8,15 +8,7 @@ public class CourseSession {
     private String sessionNumber;
     private Date startingDate;
     private List<Student> enrolledStudents = new ArrayList<>();
-    //static final String ROSTER_REPORT_HEADER ="Student" + "\n" + "———-" +  "\n" ;
-    //static final String ROSTER_REPORT_FOOTER = "\n"  +"# students = ";
 
-
-
-    /*public CourseSession(String department, String sessionNumber){
-        this.department = department;
-        this.sessionNumber = sessionNumber;
-    }*/
 
     public CourseSession(String department, String sessionNumber, Date startingDate) {
         this.department = department;
@@ -48,15 +40,8 @@ public class CourseSession {
     public Student getStudentOfIndex(int index){
         return enrolledStudents.get(index);
     }
-    public Date createStartingDate(int year, int month, int dayDate){
-        //return new Date(year - 1900, month - 1, dayDate);
-        GregorianCalendar calendar = new GregorianCalendar();
-        calendar.clear();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month-1);
-        calendar.set(Calendar.DAY_OF_MONTH , dayDate);
-        return calendar.getTime();
-    }
+
+
 
     public Date getEndDate() {
         GregorianCalendar calendar = new GregorianCalendar();

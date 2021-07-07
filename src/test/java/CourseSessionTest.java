@@ -58,11 +58,12 @@ public class CourseSessionTest {
     void courseShouldCalculateEndDateGivenStartDate(){
 
         Date startingDate;
-        startingDate =  courseSession.createStartingDate(2003,1,6);
+        DateUtility dateUtility = new DateUtility();
+        startingDate =  dateUtility.createDate(2003,1,6);
 
         CourseSession courseSession = new CourseSession("ABCD","203",startingDate);
 
-        Date sixteenWeeksOut = courseSession.createStartingDate(2003,4,25);
+        Date sixteenWeeksOut = dateUtility.createDate(2003,4,25);
         assertEquals(sixteenWeeksOut,courseSession.getEndDate());
     }
 
