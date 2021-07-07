@@ -1,3 +1,4 @@
+
 import studentinfo.Student;
 
 import java.util.*;
@@ -7,6 +8,8 @@ public class CourseSession {
     private String sessionNumber;
     private Date startingDate;
     private List<Student> enrolledStudents = new ArrayList<>();
+    //static final String ROSTER_REPORT_HEADER ="Student" + "\n" + "———-" +  "\n" ;
+    //static final String ROSTER_REPORT_FOOTER = "\n"  +"# students = ";
 
 
 
@@ -31,6 +34,10 @@ public class CourseSession {
 
     public int getNumberOfStudents() {
         return enrolledStudents.size();
+    }
+
+    List<Student> getAllStudents(){
+        return enrolledStudents;
     }
 
     public void enroll(Student student) {
@@ -59,4 +66,6 @@ public class CourseSession {
 
         return calendar.getTime();
     }
+
+
 }
