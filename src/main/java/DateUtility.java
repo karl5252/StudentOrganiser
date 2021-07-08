@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class DateUtility {
-    public Date createDate(int year, int month, int dayDate) {
+    public static Date createDate(int year, int month, int dayDate) {
 
         //return new Date(year - 1900, month - 1, dayDate);
         GregorianCalendar calendar = new GregorianCalendar();

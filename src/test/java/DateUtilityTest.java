@@ -12,8 +12,8 @@ public class DateUtilityTest {
     @Test
     void shouldDateUtilityNotReturnNull(){
         GregorianCalendar calendar = new GregorianCalendar();
-        DateUtility dateUtil = new DateUtility();
-        Date test = dateUtil.createDate(2020, 1, 1);
+        //DateUtility dateUtil = new DateUtility();
+        Date test = DateUtility.createDate(2020, 1, 1);
 
 
         assertEquals(new Date(120,Calendar.JANUARY,1), test);
