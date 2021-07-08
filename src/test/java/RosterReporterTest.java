@@ -35,6 +35,7 @@ public class RosterReporterTest {
         RosterReporter reporter =  new RosterReporter(courseSession);
         String rosterReport = reporter.getRosterReport();
       //t
+        System.out.println(rosterReport);
         assertEquals(RosterReporter.ROSTER_REPORT_HEADER + "\nJosephine Test\nThomas Bois\nDaphne Tolstoy\nMatuzalem Fedorov\n" + RosterReporter.ROSTER_REPORT_FOOTER + "4\n", rosterReport);
 
     }
