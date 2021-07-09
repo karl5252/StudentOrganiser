@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import studentinfo.Student;
 
 import java.util.Date;
@@ -16,12 +13,11 @@ public class CourseSessionTest {
     final String sessionNo = "101";
     final Date startingDate = new Date();
     CourseSession courseSession;
-    @BeforeEach
-    void setup(){
-        courseSession = new CourseSession(dep, sessionNo,startingDate);
-     }
+
+
     @Test
     void newCourseSessionHasNoStudentsEnrolled(){
+        CourseSession courseSession = CourseSession.create(dep, sessionNo,startingDate);
 
         assertEquals(dep,  courseSession.getDepartment());
         assertEquals(sessionNo, courseSession.getSessionNumber());
@@ -29,6 +25,8 @@ public class CourseSessionTest {
     }
     @Test
     void shouldGetNumberOfStudentsReturnRealNumberOfStudents(){
+        CourseSession courseSession = CourseSession.create(dep, sessionNo,startingDate);
+
 
         Student student1 = new Student("Josephine", "Test");
         Student student2 = new Student("Daphne","Test" );
@@ -43,6 +41,8 @@ public class CourseSessionTest {
     }
     @Test
     void shouldReturnStudentsThatEnrolled(){
+        CourseSession courseSession = CourseSession.create(dep, sessionNo,startingDate);
+
 
         Student student1 = new Student("Josephine", "Test");
         Student student2 = new Student("Daphne","Tolstoy" );
@@ -58,11 +58,12 @@ public class CourseSessionTest {
     @Test
     void courseShouldCalculateEndDateGivenStartDate(){
 
+
         Date startingDate;
         //DateUtility dateUtility = new DateUtility();
         startingDate =  DateUtility.createDate(2003,1,6);
 
-        CourseSession courseSession = new CourseSession("ABCD","203",startingDate);
+        CourseSession courseSession = CourseSession.create("ABCD","203",startingDate);
 
         Date sixteenWeeksOut = DateUtility.createDate(2003,4,25);
         assertEquals(sixteenWeeksOut,courseSession.getEndDate());
@@ -71,15 +72,15 @@ public class CourseSessionTest {
     void shouldCourseSessionCountReturnHowManySessionsWereCreated(){
         //CourseSession.count = 0;
         CourseSession.resetCount();
-        createCourseSession();
+        CourseSession.create("ABCD","203",startingDate);
         assertEquals(1,CourseSession.getCount());
-        createCourseSession();
+        CourseSession.create("ABCDE","204",startingDate);
         assertEquals(2,CourseSession.getCount());
 
     }
-    private CourseSession createCourseSession(){
+    /*private CourseSession createCourseSession(){
         return new CourseSession("ENGL","101",startingDate);
-    }
+    }*/
 
 
 

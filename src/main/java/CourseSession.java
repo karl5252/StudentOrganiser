@@ -11,11 +11,19 @@ public class CourseSession {
     private List<Student> enrolledStudents = new ArrayList<>();
 
 
-    public CourseSession(String department, String sessionNumber, Date startingDate) {
+    private CourseSession(String department, String sessionNumber, Date startingDate) {
         this.department = department;
         this.sessionNumber = sessionNumber;
         this.startingDate = startingDate;
         CourseSession.incrementCount();
+    }
+    //factory
+    public static CourseSession create(
+            String department,
+            String sessionNumber,
+            Date startingDate)
+    {
+        return new CourseSession(department,sessionNumber,startingDate);
     }
 
     private static void incrementCount() {
