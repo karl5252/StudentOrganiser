@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import studentinfo.Student;
@@ -65,6 +66,19 @@ public class CourseSessionTest {
 
         Date sixteenWeeksOut = DateUtility.createDate(2003,4,25);
         assertEquals(sixteenWeeksOut,courseSession.getEndDate());
+    }
+    @RepeatedTest(3)
+    void shouldCourseSessionCountReturnHowManySessionsWereCreated(){
+        //CourseSession.count = 0;
+        CourseSession.resetCount();
+        createCourseSession();
+        assertEquals(1,CourseSession.getCount());
+        createCourseSession();
+        assertEquals(2,CourseSession.getCount());
+
+    }
+    private CourseSession createCourseSession(){
+        return new CourseSession("ENGL","101",startingDate);
     }
 
 

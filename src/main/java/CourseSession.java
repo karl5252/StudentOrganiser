@@ -4,6 +4,7 @@ import studentinfo.Student;
 import java.util.*;
 
 public class CourseSession {
+    private static int count;
     private String department;
     private String sessionNumber;
     private Date startingDate;
@@ -14,6 +15,19 @@ public class CourseSession {
         this.department = department;
         this.sessionNumber = sessionNumber;
         this.startingDate = startingDate;
+        CourseSession.incrementCount();
+    }
+
+    private static void incrementCount() {
+        count ++;
+    }
+
+    public static void resetCount() {
+        count = 0;
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     public String getDepartment() {
