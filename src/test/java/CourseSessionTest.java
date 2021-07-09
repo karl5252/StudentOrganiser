@@ -12,6 +12,7 @@ public class CourseSessionTest {
     final String dep = "MATH";
     final String sessionNo = "101";
     final Date startingDate = new Date();
+    private static final int CREDITS = 5;
     CourseSession courseSession;
 
 
@@ -76,6 +77,18 @@ public class CourseSessionTest {
         assertEquals(1,CourseSession.getCount());
         CourseSession.create("ABCDE","204",startingDate);
         assertEquals(2,CourseSession.getCount());
+
+    }
+    @Test()
+    void shouldStudentEnrollCreditsShouldBeAdded(){
+
+        courseSession = CourseSession.create("ABCD","203",startingDate);
+        courseSession.setNumberOfCredits(CREDITS);
+        Student student = new Student("Bill", "Cosby");
+        courseSession.enroll(student);
+        student.addCredits(courseSession.getNumberOfCredits());
+        assertEquals(5, courseSession.getNumberOfCredits());
+        assertEquals(5, student.getCredits());
 
     }
     /*private CourseSession createCourseSession(){

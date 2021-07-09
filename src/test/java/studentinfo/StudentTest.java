@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import studentinfo.Student;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Tag("All")
 public class StudentTest {
@@ -45,6 +44,10 @@ void setup(){
     assertEquals(true,student.isFulltime());
 
 
+    }
+    @Test
+    void studentShouldNotBeAbleToHaveNegativeCredits(){
+        assertThrows(IllegalArgumentException.class, () -> student.addCredits(-5));
     }
 
 
