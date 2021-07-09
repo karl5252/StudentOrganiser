@@ -40,8 +40,20 @@ void setup(){
     }
     @Test
     void shouldStudentAccumulate12CreditsWillBeFulltime(){
-    student.addCredits(99);
+
+    assertEquals(false,student.isFulltime());
+
+    student.addCredits(1);
+    assertEquals(false,student.isFulltime());
+
+    student.addCredits(11);
     assertEquals(true,student.isFulltime());
+    assertEquals(12,student.getCredits());
+
+    student.addCredits(1);
+    assertEquals(true,student.isFulltime());
+    assertEquals(13,student.getCredits());
+
 
 
     }
