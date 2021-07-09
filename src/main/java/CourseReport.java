@@ -15,6 +15,7 @@ public class CourseReport {
         StringBuilder builder = new StringBuilder();
         for(CourseSession session :  sessionList){
             builder.append(session.getDepartment());
+            builder.append(" ");
             builder.append(session.getSessionNumber());
             builder.append("\n");
         }

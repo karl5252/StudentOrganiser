@@ -87,7 +87,10 @@ public class CourseSession implements Comparable<CourseSession> {
 
     @Override
     public int compareTo(@org.jetbrains.annotations.NotNull CourseSession o) {
-        return this.getDepartment().compareTo(o.getDepartment());
+        //return this.getDepartment().compareTo(o.getDepartment());
+        int compare =this.getDepartment().compareTo(o.getDepartment());
+        if (compare == 0)compare = this.getSessionNumber().compareTo(o.getSessionNumber());
+        return compare;
     }
 
     /*public boolean compareTo(CourseSession sessionB) {
