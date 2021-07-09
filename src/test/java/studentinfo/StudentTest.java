@@ -61,6 +61,20 @@ void setup(){
     void studentShouldNotBeAbleToHaveNegativeCredits(){
         assertThrows(IllegalArgumentException.class, () -> student.addCredits(-5));
     }
+    @Test
+    void studentIsInStateIfParamEqualToColorado(){
+        student.setState("IO");
+        assertEquals(false, student.isInState());
+
+        student.setState("CO");
+        assertEquals(true, student.isInState());
+        student.setState("cO");
+        assertEquals(true, student.isInState());
+        student.setState("Co");
+        assertEquals(true, student.isInState());
+        student.setState("co");
+        assertEquals(true, student.isInState());
+    }
 
 
 

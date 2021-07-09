@@ -3,11 +3,13 @@ package studentinfo;
 import java.util.Objects;
 
 public class Student {
+    private static final String IN_STATE = "CO";
     private String name;
     private String surname;
     private int credits;
     private boolean fullTimeStatus = false;
     static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
+    private String state;
 
     public Student(String name, String surname){
         this.name = name;
@@ -37,5 +39,13 @@ public class Student {
             this.credits += credits;
         }
 
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public boolean isInState() {
+        return state.toUpperCase().equals(Student.IN_STATE);
     }
 }
