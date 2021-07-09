@@ -41,17 +41,17 @@ void setup(){
     @Test
     void shouldStudentAccumulate12CreditsWillBeFulltime(){
 
-    assertEquals(false,student.isFulltime());
+        assertFalse(student.isFulltime());
 
     student.addCredits(1);
-    assertEquals(false,student.isFulltime());
+        assertFalse(student.isFulltime());
 
     student.addCredits(11);
-    assertEquals(true,student.isFulltime());
+        assertTrue(student.isFulltime());
     assertEquals(12,student.getCredits());
 
     student.addCredits(1);
-    assertEquals(true,student.isFulltime());
+        assertTrue(student.isFulltime());
     assertEquals(13,student.getCredits());
 
 
@@ -64,16 +64,16 @@ void setup(){
     @Test
     void studentIsInStateIfParamEqualToColorado(){
         student.setState("IO");
-        assertEquals(false, student.isInState());
+        assertFalse(student.isInState());
 
         student.setState("CO");
-        assertEquals(true, student.isInState());
+        assertTrue(student.isInState());
         student.setState("cO");
-        assertEquals(true, student.isInState());
+        assertTrue(student.isInState());
         student.setState("Co");
-        assertEquals(true, student.isInState());
+        assertTrue(student.isInState());
         student.setState("co");
-        assertEquals(true, student.isInState());
+        assertTrue(student.isInState());
     }
 
 
