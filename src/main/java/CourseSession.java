@@ -3,7 +3,7 @@ import studentinfo.Student;
 
 import java.util.*;
 
-public class CourseSession {
+public class CourseSession implements Comparable<CourseSession> {
     private static int count;
     private String department;
     private String sessionNumber;
@@ -84,4 +84,12 @@ public class CourseSession {
     public void setNumberOfCredits(int credits) {
         this.numberOfCredits = credits;
     }
+
+    @Override
+    public int compareTo(@org.jetbrains.annotations.NotNull CourseSession o) {
+        return this.getDepartment().compareTo(o.getDepartment());
+    }
+
+    /*public boolean compareTo(CourseSession sessionB) {
+    }*/
 }

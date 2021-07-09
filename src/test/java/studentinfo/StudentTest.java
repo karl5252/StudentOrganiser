@@ -75,6 +75,10 @@ void setup(){
         student.setState("co");
         assertTrue(student.isInState());
     }
+    @Test
+    void studentSHouldGracefullyRecoverFromNullValueSuppliedAsState(){
+        assertFalse(student.isInState());
+    }
 
 
 

@@ -14,6 +14,7 @@ public class Student {
     public Student(String name, String surname){
         this.name = name;
         this.surname = surname;
+        this.state = "";
 
     }
 
