@@ -1,7 +1,5 @@
-import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class CourseReport {
     private ArrayList<CourseSession> sessionList = new ArrayList<>();
@@ -11,6 +9,7 @@ public class CourseReport {
     }
 
     public String text() {
+
         Collections.sort(sessionList);
         StringBuilder builder = new StringBuilder();
         for(CourseSession session :  sessionList){
@@ -19,6 +18,9 @@ public class CourseReport {
             builder.append(session.getSessionNumber());
             builder.append("\n");
         }
+
         return builder.toString();
+
     }
+
 }

@@ -3,6 +3,7 @@ package studentinfo;
 import java.util.Objects;
 
 public class Student {
+
     private static final String IN_STATE = "CO";
     private String name;
     private String surname;
@@ -12,6 +13,7 @@ public class Student {
     private String state;
 
     public Student(String name, String surname){
+
         this.name = name;
         this.surname = surname;
         this.state = "";
@@ -25,8 +27,8 @@ public class Student {
         return surname;
     }
 
+    public boolean isFullTime() {
 
-    public boolean isFulltime() {
         return this.credits >= CREDITS_REQUIRED_FOR_FULL_TIME;
 
     }
@@ -34,6 +36,7 @@ public class Student {
     public int getCredits() { return credits;    }
 
     public void addCredits(int credits) {
+
         if (credits < 0){
             throw  new IllegalArgumentException("Credits cannot be in negative value");
         }else{

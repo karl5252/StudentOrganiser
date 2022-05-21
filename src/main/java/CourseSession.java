@@ -1,26 +1,33 @@
 
 import studentinfo.Student;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+
 
 public class CourseSession implements Comparable<CourseSession> {
+
     private static int count;
     private String department;
     private String sessionNumber;
     private Date startingDate;
     private List<Student> enrolledStudents = new ArrayList<>();
-
     private int numberOfCredits;
 
-
     private CourseSession(String department, String sessionNumber, Date startingDate) {
+
         this.department = department;
         this.sessionNumber = sessionNumber;
         this.startingDate = startingDate;
         CourseSession.incrementCount();
+
     }
     //factory
     public static CourseSession create(
+
             String department,
             String sessionNumber,
             Date startingDate)
@@ -57,6 +64,7 @@ public class CourseSession implements Comparable<CourseSession> {
     }
 
     public void enroll(Student student) {
+
         enrolledStudents.add(student);
 
     }
@@ -68,12 +76,14 @@ public class CourseSession implements Comparable<CourseSession> {
 
 
     public Date getEndDate() {
+
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.setTime(startingDate);
         int numberOfDays = 16 * 7 - 3;
         calendar.add(Calendar.DAY_OF_YEAR,numberOfDays);
 
         return calendar.getTime();
+
     }
 
 
@@ -87,10 +97,12 @@ public class CourseSession implements Comparable<CourseSession> {
 
     @Override
     public int compareTo(@org.jetbrains.annotations.NotNull CourseSession o) {
-        //return this.getDepartment().compareTo(o.getDepartment());
+
         int compare =this.getDepartment().compareTo(o.getDepartment());
-        if (compare == 0)compare = this.getSessionNumber().compareTo(o.getSessionNumber());
+        if (compare == 0) compare = this.getSessionNumber().compareTo(o.getSessionNumber());
+
         return compare;
+
     }
 
     /*public boolean compareTo(CourseSession sessionB) {
