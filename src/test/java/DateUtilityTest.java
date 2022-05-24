@@ -7,12 +7,11 @@ import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 @Tag("All")
-public class DateUtilityTest {
+class DateUtilityTest {
 
     @Test
     void shouldDateUtilityNotReturnNull(){
 
-        //GregorianCalendar calendar = new GregorianCalendar();
         Date test = DateUtility.createDate(2020, 1, 1);
 
         assertEquals(new Date(120,Calendar.JANUARY,1),
